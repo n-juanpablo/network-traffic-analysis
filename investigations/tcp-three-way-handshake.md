@@ -1,7 +1,7 @@
 # TCP Three-Way Handshake Analysis
 <br>
 
-## 1. Objective
+# 1. Objective
 
 The objective of this investigation is to analyze how TCP establishes a connection through the **Three-Way Handshake**.
 
@@ -17,9 +17,9 @@ The analysis focuses on:
 - Reconstructing the complete TCP connection establishment process using Wireshark.
 <br><br><br>
 
----
 
-## 2. Environment & Tools
+---
+# 2. Environment & Tools
 
 | Item | Details |
 |---|---|
@@ -29,8 +29,8 @@ The analysis focuses on:
 | Analysis type | Network Traffic Analysis |
 <br><br><br>
 
----
 
+---
 # 3. Initial Triage
 
 The first step was to inspect the captured traffic and identify the protocol involved in the communication.
@@ -85,7 +85,7 @@ The first packet is transmitted in the form of src ip:port -> dst ip:port
 The client initiates the TCP connection by setting the `SYN` flag.
 <br><br>
 
-### TCP Flags
+### 4.1 TCP Flags
 
 The TCP flags indicate that this packet is a SYN segment, marking the beginning of the TCP connection establishment process.
 
@@ -103,9 +103,9 @@ The `SYN` flag is used to initiate TCP connection establishment.
 At this point, the client is not acknowledging previously received TCP data from the server. This is why the acknowledgment number is `0`.
 
 <br><br>
----
 
-## 4.2 Sequence and Acknowledgment Numbers
+
+### 4.2 Sequence and Acknowledgment Numbers
 
 The packet contains:
 
