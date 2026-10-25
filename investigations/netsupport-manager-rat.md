@@ -13,6 +13,7 @@ The objective is to identify the infected Windows client and correlate network-l
 |---|---|
 | Sample |  `2026-02-28-traffic-analysis-exercise.pcap` |
 | Source | http://malware-traffic-analysis.net/
+| Tool | [Wireshark](https://www.wireshark.org/)
 | LAN segment | `10.2.28.0/24` |
 | Domain | `easyas123.tech` |
 | AD environment | `EASYAS123` |
