@@ -38,7 +38,7 @@ The investigation began by filtering the capture for traffic involving the exter
 
 `ip.addr == 45.131.214.85`
 
-<!-- screenshot -->
+![RAT Screenshot](../screenshots/rat-1.png)
 
 We can see a TCP connection between 10.2.28.88 and 45.131.214.85 over dst port 443. After the TCP three-way handshake, the internal host sends multiple HTTP POST requests to `http://45.131.214.85/fakeurl.htm`.<br>
 The presence of HTTP traffic over TCP port 443 is noteworthy, as this port is normally associated with HTTPS.
