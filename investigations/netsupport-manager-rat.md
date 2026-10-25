@@ -139,7 +139,7 @@ A second inspection/search confirms the same account name in the Kerberos `CName
 <br><br>
 
 
-# 5. Identify the user's full name through SAMR
+# 5. Determine the full name of the user from the user account
 
 We have now some useful information but the account name alone does not provide the user's full name. To correlate the Windows account with its directory information, the capture was searched for the string: `Rolf`.
 
