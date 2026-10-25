@@ -56,8 +56,7 @@ Inspection of the HTTP request reveals several indicators of interest:
 - Content-Type: `application/x-www-form-urlencoded`
 - Connection: `Keep-Alive`
 
-<!-- screenshot -->
-
+![HTTP request details](../screenshots/rat-2.png)
 
 As I mentioned above, Wireshark also generates the following Expert Info warning:
 > Unencrypted HTTP protocol detected over encrypted port, could indicate a dangerous misconfiguration.
@@ -80,7 +79,7 @@ The ARP exchange contains the response:
 10.2.28.88 is at 00:19:d1:b2:4d:ad
 ```
 
-<!-- screenshot -->
+![ARP correlation](../screenshots/rat-3.png)
 
 The Ethernet header of the same packet confirms:
 
@@ -100,11 +99,11 @@ A display filter was used to isolate NetBIOS Name Service traffic. And the resul
 ```text
 nbns && ip.addr == 10.2.28.88
 ```
-<!-- screenshot -->
+![NBNS hostname registration](../screenshots/rat-4.png
 
 To validate the association, the selected NBNS packet was inspected in detail. The packet originates from `10.2.28.88` and contains the NetBIOS name: `DESKTOP-TEYQ2NR<00>`.
 
-<!-- screenshot -->
+![NBNS packet details](../screenshots/rat-5.png)
 
 The `<00>` suffix represents the workstation/redirector NetBIOS name record. Therefore, the hostname of the infected Windows client is: **`DESKTOP-TEYQ2NR`**
 
@@ -122,7 +121,7 @@ kerberos.msg_type == 10 && ip.addr == 10.2.28.88
 
 Kerberos message type `10` corresponds to an **AS-REQ (Authentication Service Request)**.
 
-<!-- screenshot -->
+![Kerberos AS-REQ](../screenshots/rat-6.png)
 
 Within the request, Wireshark exposes the Kerberos client principal:
 
@@ -135,7 +134,7 @@ This identifies the user account involved in the authentication exchange as **`b
 
 A second inspection/search confirms the same account name in the Kerberos `CNameString` field.
 
-<!-- screenshot -->
+![Kerberos account identification](../screenshots/rat-7.png)
 
 <br><br>
 
@@ -152,7 +151,7 @@ The relevant field is:
 Full Name: Becka Rolf
 ```
 
-<!-- screenshot -->
+![SAMR full name](../screenshots/rat-8.png)
 
 This provides the final identity correlation:
 
